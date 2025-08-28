@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="chat-style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen">
+        <div class="login-container">
+            <h1>Chat App</h1>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <div id="loginError" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Main Chat Screen -->
+    <div id="chatScreen" class="screen hidden">
+        <div class="chat-container">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="user-info">
+                    <span id="currentUser"></span>
+                    <button id="logoutBtn">Logout</button>
+                </div>
+                
+                <!-- Group Chats Section -->
+                <div class="chat-section">
+                    <h3>Group Chats</h3>
+                    <div id="groupChats" class="chat-list">
+                        <div class="chat-item active" data-chat-id="general" data-chat-type="group">
+                            <span class="chat-name">General</span>
+                            <span class="unread-count hidden">0</span>
+                        </div>
+                        <div class="chat-item" data-chat-id="random" data-chat-type="group">
+                            <span class="chat-name">Random</span>
+                            <span class="unread-count hidden">0</span>
+                        </div>
+                        <div class="chat-item" data-chat-id="gaming" data-chat-type="group">
+                            <span class="chat-name">Gaming</span>
+                            <span class="unread-count hidden">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Direct Messages Section -->
+                <div class="chat-section">
+                    <h3>Direct Messages</h3>
+                    <div id="directMessages" class="chat-list">
+                        <!-- DMs will be populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Online Users -->
+                <div class="chat-section">
+                    <h3>Online Users</h3>
+                    <div id="onlineUsers" class="user-list">
+                        <!-- Online users will be populated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="chat-area">
+                <div class="chat-header">
+                    <h2 id="chatTitle">General</h2>
+                    <span id="chatType">Group Chat</span>
+                </div>
+                
+                <div id="messagesContainer" class="messages-container">
+                    <!-- Messages will be populated here -->
+                </div>
+                
+                <div class="message-input-container">
+                    <input type="text" id="messageInput" placeholder="Type a message..." maxlength="500">
+                    <button id="sendBtn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="chat-script.js"></script>
+</body>
+</html>
